@@ -37,13 +37,12 @@ public class HomePage {
         selectDepartureDate(departDate);
 
         // Click the search button
-        driver.findElement(searchForFlightLocator).click();
+        wait.until(ExpectedConditions.elementToBeClickable(searchForFlightLocator)).click();
     }
 
     public void selectDepartureDate(String desiredDate) {
 
         String xpathExpression = String.format("//button[@aria-label='%s. Select as departure date']", desiredDate);
-        System.out.println("sadsad    "+xpathExpression);
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath(xpathExpression))).click();
     }
 }
